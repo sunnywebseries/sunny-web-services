@@ -3,90 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sunny Web Services | Professional Websites</title>
+<meta name="description" content="Sunny Web Services creates premium, affordable websites for businesses, creators and brands.">
+<meta name="theme-color" content="#090909">
+<title>Sunny Web Services | Build Your Digital Future</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#080d1b;color:white;line-height:1.6}
-header{padding:20px 8%;display:flex;justify-content:space-between;align-items:center;background:#101a30}
-.logo{font-size:23px;font-weight:bold;color:#62c8ff}
-nav a{color:white;text-decoration:none;margin-left:18px;font-size:14px}
-.hero{text-align:center;padding:100px 20px;background:linear-gradient(135deg,#101a30,#123c68)}
-.hero h1{font-size:43px;line-height:1.2;margin-bottom:20px}
-.hero h1 span{color:#62c8ff}
-.hero p{color:#d0d9e8;max-width:600px;margin:15px auto}
-.btn{display:inline-block;background:#168cff;color:white;padding:13px 25px;border-radius:8px;text-decoration:none;margin-top:20px;font-weight:bold}
-section{padding:65px 8%;text-align:center}
-h2{font-size:30px;margin-bottom:25px;color:#62c8ff}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#14213b;padding:28px 20px;border-radius:14px;border:1px solid #263d60}
-.card h3{margin-bottom:12px;color:#62c8ff}
-.card p{color:#c5d0df}
-.about{background:#101a30}
-.contact p{margin:10px}
-footer{background:#101a30;text-align:center;padding:25px;color:#bbc9dc}
-@media(max-width:600px){
-header{flex-direction:column;gap:12px}
-nav a{margin:0 6px;font-size:12px}
-.hero{padding:75px 18px}
-.hero h1{font-size:34px}
-}
+:root{--bg:#090909;--panel:#141414;--panel2:#1b1b1b;--gold:#e7bd69;--gold2:#f6d994;--text:#f8f6f0;--muted:#b8b5ad;--line:#34312a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,91%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(9,9,9,.94);backdrop-filter:blur(14px);border-bottom:1px solid #29251d}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:20px;font-weight:900;letter-spacing:.5px;color:var(--gold)}
+.brand span{color:#fff}
+.links{display:flex;align-items:center;gap:26px;font-size:14px;color:#e7e2d7}
+.links a:hover{color:var(--gold)}
+.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--gold2),#c99b43);color:#17120a;padding:12px 19px;border-radius:8px;font-weight:800;border:0;cursor:pointer}
+.menu{display:none;background:none;border:1px solid var(--line);color:white;border-radius:8px;padding:8px 12px;font-size:20px}
+.hero{padding:105px 0 95px;text-align:center;background:radial-gradient(ellipse at 50% 0%,#493516 0%,#1b160e 28%,#090909 68%)}
+.eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:800}
+h1{font-size:clamp(40px,7vw,76px);line-height:1.07;letter-spacing:-2px;margin:20px auto;max-width:900px}
+h1 em{font-style:normal;color:var(--gold)}
+.hero p{max-width:690px;margin:0 auto;color:var(--muted);font-size:18px}
+.actions{display:flex;justify-content:center;gap:13px;flex-wrap:wrap;margin-top:30px}
+.btn.secondary{background:transparent;color:var(--gold);border:1px solid #9c793c}
+.trust{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin-top:38px;color:#d5cbb7;font-size:13px}
+.trust span:before{content:"✦";color:var(--gold);margin-right:8px}
+section{padding:82px 0}
+.section-head{text-align:center;margin-bottom:38px}
+.section-head h2{font-size:clamp(29px,4vw,43px);margin-top:8px}
+.section-head h2 span{color:var(--gold)}
+.section-head p{color:var(--muted);margin-top:8px}
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+.about-copy p{color:var(--muted);margin:14px 0}
+.about-box{background:linear-gradient(145deg,#211b10,#111);border:1px solid #574324;border-radius:18px;padding:30px}
+.about-box strong{display:block;color:var(--gold);font-size:34px}
+.about-box small{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:linear-gradient(145deg,#191919,#101010);border:1px solid var(--line);border-radius:15px;padding:25px;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#a98545}
+.icon{font-size:29px}
+.card h3{color:var(--gold2);margin:12px 0 7px}
+.card p{color:var(--muted);font-size:14px}
+.price{font-size:28px;font-weight:900;margin:13px 0}
+.price small{font-size:12px;color:var(--muted);font-weight:500}
+.note{font-size:12px;color:#a9a49a;margin-top:15px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{border:1px solid var(--line);border-radius:13px;padding:23px;background:#111}
+.step b{color:var(--gold);font-size:24px}
+.step h3{margin:8px 0}
+.step p{color:var(--muted);font-size:14px}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px}
+.contact-card,.form-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
+.contact-card h3,.form-card h3{color:var(--gold);font-size:22px;margin-bottom:12px}
+.contact-card p{color:var(--muted);margin:12px 0}
+.contact-card .btn{margin-top:14px}
+label{display:block;font-size:13px;color:#ddd;margin:10px 0 5px}
+input,select,textarea{width:100%;padding:13px 14px;background:#0b0b0b;border:1px solid #45413a;border-radius:8px;color:#fff;font:inherit}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:1px solid var(--gold);border-color:var(--gold)}
+.form-card button{width:100%;margin-top:15px;font-size:15px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:13px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot strong{color:var(--gold)}
+.float-wa{position:fixed;right:18px;bottom:18px;z-index:15;background:#20c765;color:white;padding:13px 18px;border-radius:40px;font-weight:800;box-shadow:0 8px 25px #0008}
+@media(max-width:800px){.links{display:none;position:absolute;top:76px;left:0;right:0;background:#101010;padding:20px;flex-direction:column;border-bottom:1px solid var(--line)}.links.open{display:flex}.menu{display:block}.nav-cta{display:none}.grid,.steps{grid-template-columns:1fr 1fr}.about-grid,.contact-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.grid,.steps{grid-template-columns:1fr}.hero{padding:78px 0}.hero p{font-size:16px}section{padding:62px 0}.trust{gap:12px}}
 </style>
 </head>
 <body>
-
 <header>
-<div class="logo">☀ SUNNY WEB SERVICES</div>
-<nav>
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
-</nav>
+ <div class="wrap">
+  <nav>
+   <a class="brand" href="#home">SUNNY <span>WEB SERVICES</span></a>
+   <button class="menu" aria-label="Open menu" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
+   <div class="links">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
+   </div>
+   <a class="nav-cta" href="#contact">Get Started ↗</a>
+  </nav>
+ </div>
 </header>
-
-<div class="hero" id="home">
-<h1>We Build <span>Beautiful Websites</span></h1>
-<p>Welcome to Sunny Web Services. We create modern, professional and mobile-friendly websites for businesses and brands.</p>
-<a href="#contact" class="btn">Get Started →</a>
+<main>
+<section class="hero" id="home">
+ <div class="wrap">
+  <div class="eyebrow">Your Digital Growth Partner</div>
+  <h1>We Build Websites<br>That Build <em>Your Business.</em></h1>
+  <p>Premium-looking, mobile-friendly websites for businesses, creators and growing brands — made simple and affordable.</p>
+  <div class="actions">
+   <a class="btn" href="#contact">Get a Free Demo</a>
+   <a class="btn secondary" href="#services">Explore Services</a>
+  </div>
+  <div class="trust"><span>Mobile Friendly</span><span>Modern Design</span><span>Personal Support</span></div>
 </div>
-
-<section id="about" class="about">
-<h2>About Us</h2>
-<p>Sunny Web Services helps businesses build their online presence with modern website design and creative digital solutions.</p>
 </section>
-
+<section id="about">
+ <div class="wrap">
+  <div class="section-head"><div class="eyebrow">Who We Are</div><h2>Meet <span>Sunny Web Services</span></h2></div>
+  <div class="about-grid">
+   <div class="about-copy">
+    <p>We help shops, startups, professionals and individuals create a strong online presence. From a simple landing page to an online store, our focus is clean design, easy navigation and a great mobile experience.</p>
+    <p>Tell us what you need. We’ll discuss your requirements and share the next steps before work begins.</p>
+   </div>
+   <div class="about-box"><strong>Ideas → Websites</strong><small>Thoughtful design. Clear communication. Websites built around your goals.</small></div>
+  </div>
+ </div>
+</section>
 <section id="services">
-<h2>Our Services</h2>
-<div class="cards">
-<div class="card">
-<h3>🌐 Website Design</h3>
-<p>Beautiful and modern website designs for your business.</p>
-</div>
-<div class="card">
-<h3>💻 Website Development</h3>
-<p>Responsive websites that work on mobile and desktop.</p>
-</div>
-<div class="card">
-<h3>🛍 Business Website</h3>
-<p>Professional websites to showcase your business online.</p>
-</div>
-<div class="card">
-<h3>🎨 Website Redesign</h3>
-<p>Give your existing website a fresh and modern look.</p>
-</div>
-</div>
+ <div class="wrap">
+  <div class="section-head"><div class="eyebrow">What We Do</div><h2>Our <span>Services</span></h2><p>Choose the website service that fits your needs.</p></div>
+  <div class="grid">
+   <article class="card"><div class="icon">🌐</div><h3>Business Website</h3><p>Professional online presence for shops, companies and local businesses.</p></article>
+   <article class="card"><div class="icon">🛍️</div><h3>E-commerce Website</h3><p>Product pages and an online storefront for your business.</p></article>
+   <article class="card"><div class="icon">👤</div><h3>Portfolio Website</h3><p>Showcase your work, skills, projects and achievements.</p></article>
+   <article class="card"><div class="icon">🚀</div><h3>Landing Page</h3><p>A focused page to present an offer, service or campaign.</p></article>
+   <article class="card"><div class="icon">✨</div><h3>Website Redesign</h3><p>Refresh your existing website with a cleaner, modern look.</p></article>
+   <article class="card"><div class="icon">🎁</div><h3>Free Website Demo</h3><p>Discuss your idea and request a demo before deciding.</p></article>
+  </div>
+ </div>
 </section>
-
-<section id="contact" class="contact about">
-<h2>Contact Us</h2>
-<p>Let's build something amazing together!</p>
-<p>Email: your-email@example.com</p>
-<a class="btn" href="https://wa.me/91XXXXXXXXXX">Contact on WhatsApp</a>
+<section id="pricing">
+ <div class="wrap">
+  <div class="section-head"><div class="eyebrow">Simple Starting Prices</div><h2>Our <span>Pricing</span></h2><p>Final quote depends on pages, features and content.</p></div>
+  <div class="grid">
+   <article class="card"><h3>Portfolio Website</h3><div class="price">₹499 <small>starting</small></div><p>For personal profiles and work showcases.</p><a class="btn" style="margin-top:18px" href="#contact">Enquire Now</a></article>
+   <article class="card"><h3>Business Website</h3><div class="price">₹999 <small>starting</small></div><p>For shops, services and small businesses.</p><a class="btn" style="margin-top:18px" href="#contact">Enquire Now</a></article>
+   <article class="card"><h3>E-commerce Website</h3><div class="price">₹2,999 <small>starting</small></div><p>For businesses looking to sell online.</p><a class="btn" style="margin-top:18px" href="#contact">Enquire Now</a></article>
+   <article class="card"><h3>Landing Page</h3><div class="price">₹499 <small>starting</small></div><p>A focused page for your campaign or offer.</p><a class="btn" style="margin-top:18px" href="#contact">Enquire Now</a></article>
+   <article class="card"><h3>Website Redesign</h3><div class="price">₹999 <small>starting</small></div><p>Give your current website a fresh look.</p><a class="btn" style="margin-top:18px" href="#contact">Enquire Now</a></article>
+   <article class="card"><h3>Free Website Demo</h3><div class="price">FREE</div><p>Start with a discussion about your website idea.</p><a class="btn" style="margin-top:18px" href="#contact">Request Demo</a></article>
+  </div>
+  <p class="note">Prices are indicative starting prices, not a final quote. Domain, paid hosting, premium tools, payment gateway and advanced features may cost extra. Confirm scope and price before ordering.</p>
+ </div>
 </section>
-
-<footer>
-<p>© 2026 Sunny Web Services. All Rights Reserved.</p>
-</footer>
-
+<section id="process">
+ <div class="wrap">
+  <div class="section-head"><div class="eyebrow">How It Works</div><h2>Simple <span>3-Step Process</span></h2></div>
+  <div class="steps">
+   <div class="step"><b>01</b><h3>Tell Us Your Idea</h3><p>Share your business details and the type of website you need.</p></div>
+   <div class="step"><b>02</b><h3>Plan & Design</h3><p>We discuss pages, features, content and the project quote.</p></div>
+   <div class="step"><b>03</b><h3>Review & Launch</h3><p>Review the work, request agreed changes and publish your website.</p></div>
+  </div>
+ </div>
+</section>
+<section id="contact">
+ <div class="wrap">
+  <div class="section-head"><div class="eyebrow">Let's Talk</div><h2>Start Your <span>Website Project</span></h2><p>Send your details and we’ll open a WhatsApp enquiry.</p></div>
+  <div class="contact-grid">
+   <div class="contact-card">
+    <h3>Contact Sunny Web Services</h3>
+    <p>Have a question or want a free demo? Contact us directly.</p>
+    <p><strong>WhatsApp:</strong> +91 9005010049</p>
+    <p><strong>Service:</strong> Website Design & Development</p>
+    <a class="btn" href="https://wa.me/919005010049" target="_blank" rel="noopener">Chat on WhatsApp</a>
+   </div>
+   <div class="form-card">
+    <h3>Send an Enquiry</h3>
+    <form id="enquiry">
+     <label for="name">Your name</label><input id="name" name="name" required placeholder="Enter your name">
+     <label for="phone">Your phone number</label><input id="phone" name="phone" required inputmode="tel" placeholder="Enter your phone number">
+     <label for="service">Select a service</label>
+     <select id="service" name="service" required>
+      <option value="">Choose a service</option><option>Business Website</option><option>E-commerce Website</option><option>Portfolio Website</option><option>Landing Page</option><option>Website Redesign</option><option>Free Website Demo</option>
+     </select>
+     <label for="message">Project details</label><textarea id="message" name="message" placeholder="Tell us briefly what you need"></textarea>
+     <button class="btn" type="submit">Send Enquiry on WhatsApp ↗</button>
+    </form>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+<footer><div class="wrap foot"><div>© <span id="year"></span> <strong>Sunny Web Services</strong>. All rights reserved.</div><div>Built with care for your digital growth.</div></div></footer>
+<a class="float-wa" href="https://wa.me/919005010049" target="_blank" rel="noopener">WhatsApp Us</a>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('enquiry').addEventListener('submit',function(e){
+ e.preventDefault();
+ const name=document.getElementById('name').value.trim();
+ const phone=document.getElementById('phone').value.trim();
+ const service=document.getElementById('service').value;
+ const message=document.getElementById('message').value.trim();
+ const text=`Hello Sunny Web Services!%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AService: ${encodeURIComponent(service)}%0ADetails: ${encodeURIComponent(message)}`;
+ window.open('https://wa.me/919005010049?text='+text,'_blank','noopener');
+});
+</script>
 </body>
 </html>
