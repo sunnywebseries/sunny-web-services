@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Sunny Web Services offers professional website design, web development, mobile-friendly websites and affordable digital solutions for businesses in India.">
 <meta name="theme-color" content="#090909">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sunny Web Services | Website Design & Development">
+<meta property="og:description" content="Affordable, mobile-friendly websites for businesses, creators and growing brands in India.">
+<meta name="robots" content="index, follow">
 <title>Sunny Web Services | Website Design & Development</title>
 <style>
 :root{--bg:#090909;--panel:#141414;--panel2:#1b1b1b;--gold:#e7bd69;--gold2:#f6d994;--text:#f8f6f0;--muted:#b8b5ad;--line:#34312a}
@@ -77,8 +81,8 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
  <div class="wrap">
   <nav>
    <a class="brand" href="#home">SUNNY <span>WEB SERVICES</span></a>
-   <button class="menu" aria-label="Open menu" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
-   <div class="links">
+   <button class="menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-links">☰</button>
+   <div class="links" id="site-links">
     <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
    </div>
    <a class="nav-cta" href="#contact">Get Started ↗</a>
@@ -147,6 +151,17 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   </div>
  </div>
 </section>
+
+<section id="faq">
+ <div class="wrap">
+  <div class="section-head"><div class="eyebrow">Quick Answers</div><h2>Frequently Asked <span>Questions</span></h2><p>A few details before you start your project.</p></div>
+  <div class="grid">
+   <article class="card"><h3>How do I get started?</h3><p>Send an enquiry on WhatsApp with your name, contact number and the type of website you need.</p></article>
+   <article class="card"><h3>Are the listed prices final?</h3><p>No. They are starting prices. The final quote depends on pages, features, content and any third-party costs.</p></article>
+   <article class="card"><h3>Can I request a demo?</h3><p>Yes. Choose “Free Website Demo” in the enquiry form and share your idea.</p></article>
+  </div>
+ </div>
+</section>
 <section id="contact">
  <div class="wrap">
   <div class="section-head"><div class="eyebrow">Let's Talk</div><h2>Start Your <span>Website Project</span></h2><p>Send your details and we’ll open a WhatsApp enquiry.</p></div>
@@ -156,7 +171,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
     <p>Have a question or want a free demo? Contact us directly.</p>
     <p><strong>WhatsApp:</strong> +91 9005010049</p>
     <p><strong>Service:</strong> Website Design & Development</p>
-    <a class="btn" href="https://wa.me/919005010049" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    <a class="btn" href="https://wa.me/919005010049" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
    </div>
    <div class="form-card">
     <h3>Send an Enquiry</h3>
@@ -176,17 +191,40 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
 </section>
 </main>
 <footer><div class="wrap foot"><div>© <span id="year"></span> <strong>Sunny Web Services</strong>. All rights reserved.</div><div>Built with care for your digital growth.</div></div></footer>
-<a class="float-wa" href="https://wa.me/919005010049" target="_blank" rel="noopener">WhatsApp Us</a>
+<a class="float-wa" href="https://wa.me/919005010049" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
+
+const menuButton = document.querySelector('.menu');
+const navLinks = document.querySelector('.links');
+menuButton.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(isOpen));
+  menuButton.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', 'Open navigation menu');
+  });
+});
 document.getElementById('enquiry').addEventListener('submit',function(e){
  e.preventDefault();
  const name=document.getElementById('name').value.trim();
  const phone=document.getElementById('phone').value.trim();
+  const digits=phone.replace(/\D/g,'');
+  if (digits.length < 10 || digits.length > 15) {
+    alert('Please enter a valid phone number (10 to 15 digits).');
+    document.getElementById('phone').focus();
+    return;
+  }
  const service=document.getElementById('service').value;
  const message=document.getElementById('message').value.trim();
  const text=`Hello Sunny Web Services!%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AService: ${encodeURIComponent(service)}%0ADetails: ${encodeURIComponent(message)}`;
- window.open('https://wa.me/919005010049?text='+text,'_blank','noopener');
+ const whatsappUrl='https://wa.me/919005010049?text='+text;
+  const newTab=window.open(whatsappUrl,'_blank');
+  if (!newTab) window.location.href=whatsappUrl;
 });
 </script>
 </body>
